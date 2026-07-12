@@ -8,13 +8,11 @@ logger = get_logger(__name__)
 class TelegramClient:
     def __init__(self, token: str):
         self.token = token
-        # Используем IP вместо домена (обход DNS блокировок)
-        self.base_url = "https://149.154.167.220/bot{}/".format(self.token)
+        self.base_url = "https://api.telegram.org/bot{}/".format(self.token)
         self.session = requests.Session()
-        # Добавляем заголовок Host для корректной работы HTTPS
         self.session.headers.update({
-            "Host": "api.telegram.org",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Connection": "keep-alive"
         })
 
     def _request(self, method: str, params: dict = None, json_data: dict = None, retries: int = 3):
@@ -22,29 +20,25 @@ class TelegramClient:
         for attempt in range(retries):
             try:
                 if json_data:
-                    resp = self.session.post(url, json=json_data, timeout=30)
+                    resp = self.session.post(url, json=json_data, timeout=20)
                 else:
-                    resp = self.session.get(url, params=params, timeout=30)
+                    resp = self.session.get(url, params=params, timeout=20)
 
                 if resp.status_code == 200:
                     data = resp.json()
                     if data.get("ok"):
                         return data.get("result", {})
-                    else:
-                        logger.error(f"Telegram API ошибка: {data}")
-                        return {}
                 else:
-                    logger.error(f"Ошибка API: {resp.status_code} - {resp.text}")
+                    logger.warning(f"Ошибка {resp.status_code}, попытка {attempt+1}/{retries}")
 
             except requests.exceptions.Timeout:
                 logger.warning(f"Таймаут, попытка {attempt+1}/{retries}")
-                time.sleep(2)
             except requests.exceptions.ConnectionError:
                 logger.warning(f"Ошибка соединения, попытка {attempt+1}/{retries}")
-                time.sleep(3)
             except Exception as e:
-                logger.error(f"Ошибка запроса: {e}")
-                time.sleep(2)
+                logger.error(f"Ошибка: {e}")
+
+            time.sleep(2)
 
         return {}
 

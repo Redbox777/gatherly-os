@@ -1,0 +1,22 @@
+bot:
+  token: "8998508373:AAHGfSz8Fr0Ok_sKhZQAgA57PiLjxpwoAzI"
+  admin_id: 123456789
+
+database:
+  path: "gatherly.db"
+
+logging:
+  level: "INFO"
+  max_size_mb: 10
+  backup_count: 5
+
+analytics:
+  enabled: true
+  report_time: "23:59"
+
+health:
+  enabled: true
+  check_interval_sec: 60
+
+weather:
+  api: "open-meteo"

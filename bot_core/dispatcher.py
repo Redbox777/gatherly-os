@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 from core import Database, get_logger
 from .client import TelegramClient
-from .keyboards import main_menu, weather_menu, back_menu, location_keyboard, reminders_menu
+from .keyboards import main_menu, weather_menu, back_menu, location_keyboard, reminders_menu, profile_menu
 from handlers import (
     StartHandler,
     WeatherHandler,

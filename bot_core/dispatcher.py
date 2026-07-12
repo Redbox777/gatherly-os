@@ -1,4 +1,5 @@
 import time
+import re
 from datetime import datetime
 from core import Database, get_logger
 from .client import TelegramClient
@@ -19,7 +20,7 @@ from handlers import (
     NotificationHandler
 )
 from bot_core.calendar import generate_calendar, parse_callback
-from analytics import ErrorCollector, ReportGenerator
+from analytics import ErrorCollector
 
 logger = get_logger(__name__)
 
@@ -51,6 +52,19 @@ class Dispatcher:
         self.notification_handler = NotificationHandler(client, db)
         self.error_collector = ErrorCollector()
 
+    def _is_date(self, text: str) -> bool:
+        """Проверяет, является ли текст датой"""
+        patterns = [
+            r"^\d{4}-\d{2}-\d{2}$",   # 2026-07-12
+            r"^\d{2}\.\d{2}\.\d{4}$", # 12.07.2026
+            r"^\d{2}/\d{2}/\d{4}$",   # 12/07/2026
+            r"^\d{2}-\d{2}-\d{4}$",   # 12-07-2026
+        ]
+        for pattern in patterns:
+            if re.match(pattern, text):
+                return True
+        return False
+
     def process_update(self, update: dict):
         if "callback_query" in update:
             self._handle_callback(update["callback_query"])
@@ -67,6 +81,7 @@ class Dispatcher:
 
         logger.info(f"{first_name} ({chat_id}): {text}")
 
+        # Обработка геолокации
         if "location" in msg:
             lat = msg["location"]["latitude"]
             lon = msg["location"]["longitude"]
@@ -77,6 +92,7 @@ class Dispatcher:
             )
             return
 
+        # Состояния
         if chat_id in self.profile_handler.states:
             self.profile_handler.process_state(chat_id, text)
             return
@@ -89,6 +105,7 @@ class Dispatcher:
             self.expense_handler.process_state(chat_id, text)
             return
 
+        # === ОСНОВНЫЕ КОМАНДЫ ===
         if text == "/start":
             self.start_handler.handle(chat_id, first_name, username)
         
@@ -216,22 +233,18 @@ class Dispatcher:
         
         # === АНАЛИТИКА ОШИБОК ===
         elif text == "📊 Ошибки" or text == "/errors":
-            try:
-                errors = self.error_collector.get_errors(limit=20, resolved=0)
-                if not errors:
-                    self.client.send_message(chat_id, "✅ Неисправленных ошибок нет!", main_menu())
-                    return
-                
-                text_msg = f"📊 **Ошибки ({len(errors)} неисправлено):**\n\n"
-                for e in errors[:10]:
-                    text_msg += f"#{e['id']} {e['timestamp'][:16]} | {e['error_type']}\n"
-                    text_msg += f"  {e['error_message'][:60]}...\n\n"
-                
-                text_msg += f"\n/resolve <ID> — отметить как исправленное"
-                self.client.send_message(chat_id, text_msg, main_menu(), parse_mode="Markdown")
-            except Exception as e:
-                self.error_collector.add_error(e, chat_id, "/errors")
-                self.client.send_message(chat_id, "❌ Ошибка при получении списка ошибок.", main_menu())
+            errors = self.error_collector.get_errors(limit=20, resolved=0)
+            if not errors:
+                self.client.send_message(chat_id, "✅ Неисправленных ошибок нет!", main_menu())
+                return
+            
+            text_msg = f"📊 **Ошибки ({len(errors)} неисправлено):**\n\n"
+            for e in errors[:10]:
+                text_msg += f"#{e['id']} {e['timestamp'][:16]} | {e['error_type']}\n"
+                text_msg += f"  {e['error_message'][:60]}...\n\n"
+            
+            text_msg += f"\n/resolve <ID> — отметить как исправленное"
+            self.client.send_message(chat_id, text_msg, main_menu(), parse_mode="Markdown")
         
         elif text.startswith("/resolve"):
             parts = text.split()
@@ -242,9 +255,6 @@ class Dispatcher:
                     self.client.send_message(chat_id, f"✅ Ошибка #{error_id} отмечена как исправленная!", main_menu())
                 except ValueError:
                     self.client.send_message(chat_id, "❌ Введите корректный ID ошибки.", main_menu())
-                except Exception as e:
-                    self.error_collector.add_error(e, chat_id, f"/resolve {parts[1] if len(parts)>1 else ''}")
-                    self.client.send_message(chat_id, "❌ Ошибка при отметке.", main_menu())
             else:
                 self.client.send_message(chat_id, "❌ Пример: /resolve 1", main_menu())
         
@@ -317,7 +327,19 @@ class Dispatcher:
         elif text == "🔙 Назад":
             self.start_handler.handle(chat_id, first_name, username)
         
-        elif text and not text.startswith("/") and text not in MENU_COMMANDS:
+        # === ОБРАБОТКА ЛЮБОГО ДРУГОГО ТЕКСТА ===
+        elif text and not text.startswith("/"):
+            # Проверяем, не является ли текст датой
+            if self._is_date(text):
+                self.client.send_message(chat_id, f"📅 Выбрана дата: {text}")
+                return
+            
+            # Проверяем, не является ли текст командой меню
+            if text in MENU_COMMANDS:
+                self.client.send_message(chat_id, "📩 Используйте кнопки меню.", main_menu())
+                return
+            
+            # Иначе — пробуем как погоду
             self.weather_handler.handle(chat_id, text)
         
         else:

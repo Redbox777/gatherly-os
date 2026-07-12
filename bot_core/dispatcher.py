@@ -148,21 +148,18 @@ class Dispatcher:
             else:
                 self.client.send_message(chat_id, "📝 Пример: /weather Орел")
         
-        # Профиль
-        elif match_keyword(text_lower, KEYWORDS["profile"]):
-            self.profile_handler.show_profile(chat_id)
-        elif match_keyword(text_lower, KEYWORDS["edit_profile"]):
-            self.client.send_message(chat_id, "📝 Что хотите изменить?", {
-                "keyboard": [
-                    ["🏙 Город", "🎯 Интересы"],
-                    ["🔙 Назад"]
-                ],
-                "resize_keyboard": True
-            })
-        elif match_keyword(text_lower, KEYWORDS["city"]):
-            self.profile_handler.edit_city(chat_id)
-        elif match_keyword(text_lower, KEYWORDS["interests"]):
-            self.profile_handler.edit_interests(chat_id)
+        # Профиль (кнопки)
+.       elif text == "👤 Профиль":
+    self.profile_handler.show_profile(chat_id)
+.       elif text == "✏️ Город":
+    self.profile_handler.edit_city(chat_id)
+.       elif text == "🎯 Интересы":
+    self.profile_handler.edit_interests(chat_id)
+.       elif text == "📊 Моя статистика":
+    self.stats_handler.show_user_stats(chat_id)
+.       elif text == "💾 Сохранить профиль":
+    self.client.send_message(chat_id, "✅ Профиль сохранён!", profile_menu())
+                    
         
         # Встречи
         elif match_keyword(text_lower, KEYWORDS["create_meeting"]):

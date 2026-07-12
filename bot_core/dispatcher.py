@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 from core import Database, get_logger
 from .client import TelegramClient
-from .keyboards import main_menu, weather_menu, back_menu, location_keyboard
+from .keyboards import main_menu, weather_menu, back_menu, location_keyboard, reminders_menu
 from handlers import (
     StartHandler,
     WeatherHandler,
@@ -24,7 +24,6 @@ from analytics import ErrorCollector
 
 logger = get_logger(__name__)
 
-# Ключевые слова для распознавания команд (без привязки к эмодзи)
 KEYWORDS = {
     "weather": ["погода"],
     "create_meeting": ["создать встречу", "новая встреча"],
@@ -35,7 +34,7 @@ KEYWORDS = {
     "calendar": ["календарь"],
     "location": ["геолокация", "локация"],
     "stats": ["статистика"],
-    "backup": ["бэкап", "бэкап"],
+    "backup": ["бэкап"],
     "errors": ["ошибки"],
     "report": ["отчёт", "отчет"],
     "help": ["помощь"],
@@ -48,7 +47,6 @@ KEYWORDS = {
 }
 
 def match_keyword(text: str, keywords: list) -> bool:
-    """Проверяет, содержит ли текст одно из ключевых слов"""
     text_lower = text.lower().strip()
     for kw in keywords:
         if kw in text_lower:
@@ -113,6 +111,7 @@ class Dispatcher:
             )
             return
 
+        # === СОСТОЯНИЯ ===
         if chat_id in self.profile_handler.states:
             self.profile_handler.process_state(chat_id, text)
             return
@@ -124,22 +123,24 @@ class Dispatcher:
         if chat_id in self.expense_handler.states:
             self.expense_handler.process_state(chat_id, text)
             return
+        
+        if chat_id in self.reminder_handler.states:
+            self.reminder_handler.process_state(chat_id, text)
+            return
 
-        # === КОМАНДЫ /start ===
+        # === КОМАНДЫ ===
         if text == "/start":
             self.start_handler.handle(chat_id, first_name, username)
             return
 
-        # === КОМАНДЫ ПО КЛЮЧЕВЫМ СЛОВАМ ===
         text_lower = text.lower().strip()
 
+        # Погода
         if match_keyword(text_lower, KEYWORDS["weather"]) and not match_keyword(text_lower, KEYWORDS["other_city"]):
             self.weather_handler.show_menu(chat_id)
-        
         elif match_keyword(text_lower, KEYWORDS["other_city"]):
             self.client.send_message(chat_id, "🏙 Введите название города:", back_menu())
             self.profile_handler.states[chat_id] = "waiting_weather"
-        
         elif text.startswith("/weather"):
             city = text.replace("/weather", "").strip()
             if city:
@@ -147,9 +148,9 @@ class Dispatcher:
             else:
                 self.client.send_message(chat_id, "📝 Пример: /weather Орел")
         
+        # Профиль
         elif match_keyword(text_lower, KEYWORDS["profile"]):
             self.profile_handler.show_profile(chat_id)
-        
         elif match_keyword(text_lower, KEYWORDS["edit_profile"]):
             self.client.send_message(chat_id, "📝 Что хотите изменить?", {
                 "keyboard": [
@@ -158,19 +159,16 @@ class Dispatcher:
                 ],
                 "resize_keyboard": True
             })
-        
         elif match_keyword(text_lower, KEYWORDS["city"]):
             self.profile_handler.edit_city(chat_id)
-        
         elif match_keyword(text_lower, KEYWORDS["interests"]):
             self.profile_handler.edit_interests(chat_id)
         
+        # Встречи
         elif match_keyword(text_lower, KEYWORDS["create_meeting"]):
             self.meeting_handler.new_meeting(chat_id)
-        
         elif match_keyword(text_lower, KEYWORDS["my_meetings"]):
             self.meeting_handler.list_meetings(chat_id)
-        
         elif text.startswith("/meeting"):
             parts = text.split()
             if len(parts) >= 2:
@@ -181,7 +179,6 @@ class Dispatcher:
                     self.client.send_message(chat_id, "❌ Введите корректный ID встречи.")
             else:
                 self.client.send_message(chat_id, "📝 Пример: /meeting 1")
-        
         elif text.startswith("/vote"):
             parts = text.split()
             if len(parts) >= 3:
@@ -194,26 +191,23 @@ class Dispatcher:
             else:
                 self.client.send_message(chat_id, "❌ Пример: /vote 1 going")
         
+        # Друзья
         elif match_keyword(text_lower, KEYWORDS["friends"]):
             self.friend_handler.list_friends(chat_id)
-        
         elif text.startswith("/addme"):
             parts = text.split()
             if len(parts) >= 2:
                 self.friend_handler.add_friend(chat_id, parts[1])
             else:
                 self.client.send_message(chat_id, "❌ Введите ID друга: /addme 123456789")
-        
         elif match_keyword(text_lower, KEYWORDS["requests"]):
             self.friend_handler.list_requests(chat_id)
-        
         elif text.startswith("/accept"):
             parts = text.split()
             if len(parts) >= 2:
                 self.friend_handler.accept_request(chat_id, parts[1])
             else:
                 self.client.send_message(chat_id, "❌ Пример: /accept 123456789")
-        
         elif text.startswith("/reject"):
             parts = text.split()
             if len(parts) >= 2:
@@ -221,13 +215,13 @@ class Dispatcher:
             else:
                 self.client.send_message(chat_id, "❌ Пример: /reject 123456789")
         
+        # Расходы
         elif text.startswith("/expense"):
             parts = text.split()
             if len(parts) >= 2:
                 self.expense_handler.add_expense(chat_id, parts[1])
             else:
                 self.client.send_message(chat_id, "❌ Пример: /expense 1")
-        
         elif text.startswith("/expenses"):
             parts = text.split()
             if len(parts) >= 2:
@@ -235,15 +229,19 @@ class Dispatcher:
             else:
                 self.client.send_message(chat_id, "❌ Пример: /expenses 1")
         
+        # Напоминания (кнопки)
         elif match_keyword(text_lower, KEYWORDS["reminders"]):
-            self.client.send_message(chat_id, "⏰ Напоминания:\n/remind — создать\n/reminders — список\n/delremind — удалить", main_menu())
-        
+            self.reminder_handler.show_menu(chat_id)
+        elif text == "➕ Создать напоминание":
+            self.reminder_handler.start_create(chat_id)
+        elif text == "📋 Мои напоминания":
+            self.reminder_handler.list_reminders(chat_id)
+        elif text == "❌ Удалить напоминание":
+            self.reminder_handler.start_delete(chat_id)
         elif text.startswith("/remind"):
             self.reminder_handler.schedule(chat_id, text)
-        
         elif text == "/reminders":
             self.reminder_handler.list_reminders(chat_id)
-        
         elif text.startswith("/delremind"):
             parts = text.split()
             if len(parts) >= 2:
@@ -251,26 +249,31 @@ class Dispatcher:
             else:
                 self.client.send_message(chat_id, "❌ Пример: /delremind 1", main_menu())
         
+        # Календарь
         elif match_keyword(text_lower, KEYWORDS["calendar"]):
             now = datetime.now()
             keyboard = generate_calendar(now.year, now.month)
             self.client.send_message(chat_id, "📅 Выберите дату:", keyboard=keyboard)
         
+        # Геолокация
         elif match_keyword(text_lower, KEYWORDS["location"]):
             self.client.send_message(chat_id, "📍 Отправьте своё местоположение:", keyboard=location_keyboard())
         
+        # Статистика
         elif match_keyword(text_lower, KEYWORDS["stats"]):
             self.stats_handler.show_user_stats(chat_id)
         
+        # Бэкап
         elif match_keyword(text_lower, KEYWORDS["backup"]):
             self.backup_handler.create_backup(chat_id)
-        
-        elif text == "/adminstats":
-            self.stats_handler.show_global_stats(chat_id)
-        
         elif text == "/backups":
             self.backup_handler.list_backups(chat_id)
         
+        # Админ
+        elif text == "/adminstats":
+            self.stats_handler.show_global_stats(chat_id)
+        
+        # Аналитика ошибок
         elif match_keyword(text_lower, KEYWORDS["errors"]):
             errors = self.error_collector.get_errors(limit=20, resolved=0)
             if not errors:
@@ -282,7 +285,6 @@ class Dispatcher:
                 text_msg += f"  {e['error_message'][:60]}...\n\n"
             text_msg += f"\n/resolve <ID> — отметить как исправленное"
             self.client.send_message(chat_id, text_msg, main_menu(), parse_mode="Markdown")
-        
         elif text.startswith("/resolve"):
             parts = text.split()
             if len(parts) >= 2:
@@ -295,6 +297,7 @@ class Dispatcher:
             else:
                 self.client.send_message(chat_id, "❌ Пример: /resolve 1", main_menu())
         
+        # Отчёт
         elif match_keyword(text_lower, KEYWORDS["report"]):
             try:
                 from analytics import DailyReport
@@ -306,67 +309,65 @@ class Dispatcher:
                 self.error_collector.add_error(e, chat_id, "/sendreport")
                 self.client.send_message(chat_id, "❌ Ошибка при отправке отчёта.", main_menu())
         
+        # Чат
         elif text.startswith("/chat"):
             parts = text.split()
             if len(parts) >= 2:
                 self.chat_handler.enter_chat(chat_id, parts[1])
             else:
                 self.client.send_message(chat_id, "❌ Пример: /chat 1", main_menu())
-
         elif text.startswith("/sendchat"):
             parts = text.split(maxsplit=2)
             if len(parts) >= 3:
                 self.chat_handler.send_chat_message(chat_id, parts[1], parts[2])
             else:
                 self.client.send_message(chat_id, "❌ Пример: /sendchat 1 Текст", main_menu())
-
         elif text.startswith("/chathistory"):
             parts = text.split()
             if len(parts) >= 2:
                 self.chat_handler.get_chat_history(chat_id, parts[1])
             else:
                 self.client.send_message(chat_id, "❌ Пример: /chathistory 1", main_menu())
-
+        
+        # Опросы
         elif text.startswith("/poll"):
             self.poll_handler.create_poll(chat_id, text)
-
+        
+        # Чек-листы
         elif text.startswith("/checklist"):
             parts = text.split()
             if len(parts) >= 2:
                 self.checklist_handler.create_checklist(chat_id, parts[1])
             else:
                 self.client.send_message(chat_id, "❌ Пример: /checklist 1", main_menu())
-
         elif text.startswith("/done"):
             parts = text.split()
             if len(parts) >= 2:
                 self.checklist_handler.toggle_done(chat_id, parts[1])
             else:
                 self.client.send_message(chat_id, "❌ Пример: /done 1", main_menu())
-
         elif text.startswith("/delete"):
             parts = text.split()
             if len(parts) >= 2:
                 self.checklist_handler.delete_task(chat_id, parts[1])
             else:
                 self.client.send_message(chat_id, "❌ Пример: /delete 1", main_menu())
-
+        
+        # Уведомления
         elif text.startswith("/notify"):
             self.notification_handler.notify_all(chat_id, text)
         
+        # Помощь / Назад
         elif match_keyword(text_lower, KEYWORDS["help"]):
             self._show_help(chat_id)
-        
         elif match_keyword(text_lower, KEYWORDS["back"]):
             self.start_handler.handle(chat_id, first_name, username)
         
-        # === ОБРАБОТКА ЛЮБОГО ДРУГОГО ТЕКСТА ===
+        # === ЛЮБОЙ ДРУГОЙ ТЕКСТ ===
         elif text and not text.startswith("/"):
             if self._is_date(text):
                 self.client.send_message(chat_id, f"📅 Выбрана дата: {text}")
                 return
-            
-            # Если текст не похож на город — игнорируем
             self.weather_handler.handle(chat_id, text)
         
         else:

@@ -34,3 +34,12 @@ def location_keyboard():
         ],
         "resize_keyboard": True
     }
+
+def reminders_menu():
+    return {
+        "keyboard": [
+            ["➕ Создать напоминание", "📋 Мои напоминания"],
+            ["❌ Удалить напоминание", "🔙 Назад"]
+        ],
+        "resize_keyboard": True
+    }

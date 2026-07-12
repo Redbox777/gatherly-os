@@ -1667,3 +1667,173 @@
 2026-07-12 11:54:33,328 - bot_core.client - WARNING - Ошибка соединения, попытка 2/3
 2026-07-12 11:54:36,518 - bot_core.client - WARNING - Ошибка соединения, попытка 3/3
 2026-07-12 11:54:40,429 - __main__ - INFO - 👋 Получен сигнал остановки
+2026-07-12 13:09:14,943 - root - INFO - ✅ Система логирования настроена
+2026-07-12 13:09:14,944 - __main__ - INFO - 🚀 Gatherly OS запущена
+2026-07-12 13:09:14,944 - __main__ - INFO - 📁 База данных: gatherly.db
+2026-07-12 13:09:14,946 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 13:09:14,947 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 13:09:14,949 - bot_core.bot - INFO - 🤖 Бот запущен
+2026-07-12 13:09:15,467 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Создать встречу
+2026-07-12 13:09:15,634 - bot_core.dispatcher - INFO - Daniil (293975418): 🌤 Погода
+2026-07-12 13:09:15,900 - bot_core.dispatcher - INFO - Daniil (293975418): 👤 Профиль
+2026-07-12 13:09:16,070 - bot_core.dispatcher - INFO - Daniil (293975418): 👤 Профиль
+2026-07-12 13:09:16,251 - bot_core.dispatcher - INFO - Daniil (293975418): 📊 Статистика
+2026-07-12 13:09:16,425 - bot_core.dispatcher - INFO - Daniil (293975418): /errors
+2026-07-12 13:09:16,459 - services.meeting_service - INFO - Создана встреча #5: 🌤 Погода
+2026-07-12 13:09:27,657 - bot_core.dispatcher - INFO - Daniil (293975418): 👤 Профиль
+2026-07-12 13:09:29,629 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Создать встречу
+2026-07-12 13:09:31,053 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:09:32,625 - bot_core.dispatcher - INFO - Daniil (293975418): 📍 Геолокация
+2026-07-12 13:09:37,702 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:09:39,567 - bot_core.dispatcher - INFO - Daniil (293975418): 👥 Друзья
+2026-07-12 13:09:55,634 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Календарь
+2026-07-12 13:10:17,457 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:10:39,854 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:11:02,133 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:11:25,665 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:11:47,960 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:12:10,255 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:12:33,607 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:12:55,878 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:13:18,146 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:13:41,721 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:14:04,303 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:14:26,676 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:14:50,095 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:15:12,516 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:15:35,541 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:15:58,952 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:16:21,240 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:16:43,922 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:17:07,285 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:17:30,038 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:17:52,468 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:18:15,773 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:18:38,183 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:19:00,564 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:19:24,012 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:19:46,473 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:20:09,272 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:20:32,592 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:20:54,981 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:21:17,264 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:21:40,645 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:22:02,981 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:22:25,267 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:22:48,654 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:23:10,892 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:23:33,244 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:24:01,056 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:24:23,457 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:24:45,826 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:25:09,109 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:25:31,524 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:25:53,922 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:26:17,347 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:26:39,917 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:27:02,870 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:27:26,139 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:27:48,798 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:28:11,213 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:28:35,458 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:30:00,421 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:30:22,833 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:30:45,127 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:31:08,485 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:31:30,769 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:46:05,322 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:46:27,699 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:46:49,964 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:47:05,198 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:47:25,373 - bot_core.dispatcher - INFO - Daniil (293975418): 🌤 Погода
+2026-07-12 13:47:35,583 - bot_core.dispatcher - INFO - Daniil (293975418): Орёл
+2026-07-12 13:47:39,615 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:47:41,913 - bot_core.dispatcher - INFO - Daniil (293975418): 👤 Профиль
+2026-07-12 13:47:56,773 - bot_core.dispatcher - INFO - Daniil (293975418): 💾 Бэкап
+2026-07-12 13:47:56,778 - services.backup_service - INFO - Бэкап создан: backups/gatherly_20260712_134756.db
+2026-07-12 13:48:06,275 - bot_core.dispatcher - INFO - Daniil (293975418): 💾 Бэкап
+2026-07-12 13:48:06,276 - services.backup_service - INFO - Бэкап создан: backups/gatherly_20260712_134806.db
+2026-07-12 13:48:07,617 - bot_core.dispatcher - INFO - Daniil (293975418): 📍 Геолокация
+2026-07-12 13:48:10,903 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:48:23,016 - bot_core.dispatcher - INFO - Daniil (293975418): 📊 Статистика
+2026-07-12 13:48:27,765 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Календарь
+2026-07-12 13:48:33,267 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:48:35,028 - bot_core.dispatcher - INFO - Daniil (293975418): 👥 Друзья
+2026-07-12 13:48:37,693 - bot_core.dispatcher - INFO - Daniil (293975418): 📋 Мои встречи
+2026-07-12 13:48:43,320 - bot_core.dispatcher - INFO - Daniil (293975418): ⏰ Напоминания
+2026-07-12 13:49:04,569 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:49:27,181 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:49:49,669 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:51:54,141 - bot_core.dispatcher - INFO - Daniil (293975418): 💾 Бэкап
+2026-07-12 13:51:54,143 - services.backup_service - INFO - Бэкап создан: backups/gatherly_20260712_135154.db
+2026-07-12 13:51:55,527 - bot_core.dispatcher - INFO - Daniil (293975418): 📍 Геолокация
+2026-07-12 13:52:00,679 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:52:02,241 - bot_core.dispatcher - INFO - Daniil (293975418): ⏰ Напоминания
+2026-07-12 13:52:05,150 - bot_core.dispatcher - INFO - Daniil (293975418): 👤 Профиль
+2026-07-12 13:52:17,362 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Создать встречу
+2026-07-12 13:52:22,895 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:52:26,321 - bot_core.dispatcher - INFO - Daniil (293975418): 🌤 Погода
+2026-07-12 13:52:33,102 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:52:34,847 - bot_core.dispatcher - INFO - Daniil (293975418): 📋 Мои встречи
+2026-07-12 13:52:46,514 - bot_core.dispatcher - INFO - Daniil (293975418): 👥 Друзья
+2026-07-12 13:52:59,561 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Календарь
+2026-07-12 13:53:01,542 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:53:02,937 - bot_core.dispatcher - INFO - Daniil (293975418): 📊 Статистика
+2026-07-12 13:53:06,841 - bot_core.dispatcher - INFO - Daniil (293975418): ❓ Помощь
+2026-07-12 13:53:07,065 - bot_core.client - WARNING - Ошибка 400, попытка 1/3
+2026-07-12 13:53:09,255 - bot_core.client - WARNING - Ошибка 400, попытка 2/3
+2026-07-12 13:53:11,488 - bot_core.client - WARNING - Ошибка 400, попытка 3/3
+2026-07-12 13:53:14,612 - bot_core.dispatcher - INFO - Daniil (293975418): ❓ Помощь
+2026-07-12 13:53:14,770 - bot_core.client - WARNING - Ошибка 400, попытка 1/3
+2026-07-12 13:53:16,958 - bot_core.client - WARNING - Ошибка 400, попытка 2/3
+2026-07-12 13:53:19,484 - bot_core.client - WARNING - Ошибка 400, попытка 3/3
+2026-07-12 13:53:42,510 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:54:04,914 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:54:33,232 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 13:55:01,271 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:55:23,657 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:55:30,519 - __main__ - INFO - 👋 Получен сигнал остановки
+2026-07-12 13:56:46,374 - root - INFO - ✅ Система логирования настроена
+2026-07-12 13:56:46,375 - __main__ - INFO - 🚀 Gatherly OS запущена
+2026-07-12 13:56:46,375 - __main__ - INFO - 📁 База данных: gatherly.db
+2026-07-12 13:56:46,376 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 13:56:46,377 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 13:56:46,379 - bot_core.bot - INFO - 🤖 Бот запущен
+2026-07-12 13:56:51,561 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Календарь
+2026-07-12 13:56:54,542 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 13:56:57,037 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Календарь
+2026-07-12 13:57:15,014 - bot_core.dispatcher - INFO - Daniil (293975418): /start
+2026-07-12 13:57:18,829 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Календарь
+2026-07-12 13:57:41,045 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 13:58:03,416 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 13:58:05,279 - __main__ - INFO - 👋 Получен сигнал остановки
+2026-07-12 14:02:21,708 - root - INFO - ✅ Система логирования настроена
+2026-07-12 14:02:21,709 - __main__ - INFO - 🚀 Gatherly OS запущена
+2026-07-12 14:02:21,709 - __main__ - INFO - 📁 База данных: gatherly.db
+2026-07-12 14:02:21,710 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:02:21,711 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:02:21,712 - bot_core.bot - INFO - 🤖 Бот запущен
+2026-07-12 14:02:22,250 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 14:02:22,441 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 14:02:29,677 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Календарь
+2026-07-12 14:02:51,600 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 14:03:14,012 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 14:03:36,300 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 14:03:59,642 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 14:04:01,048 - __main__ - INFO - 👋 Получен сигнал остановки
+2026-07-12 14:07:48,523 - root - INFO - ✅ Система логирования настроена
+2026-07-12 14:07:48,524 - __main__ - INFO - 🚀 Gatherly OS запущена
+2026-07-12 14:07:48,524 - __main__ - INFO - 📁 База данных: gatherly.db
+2026-07-12 14:07:48,525 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:07:48,526 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:07:48,527 - bot_core.bot - INFO - 🤖 Бот запущен
+2026-07-12 14:07:53,583 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 14:07:55,163 - bot_core.dispatcher - INFO - Daniil (293975418): 📅 Календарь
+2026-07-12 14:08:00,977 - bot_core.dispatcher - INFO - Daniil (293975418): 🌤 Погода
+2026-07-12 14:08:02,840 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 14:08:24,137 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 14:08:46,561 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 14:09:06,741 - bot_core.dispatcher - INFO - Daniil (293975418): ⏰ Напоминания
+2026-07-12 14:09:27,940 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 14:09:50,264 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 14:10:08,811 - __main__ - INFO - 👋 Получен сигнал остановки

@@ -43,3 +43,13 @@ def reminders_menu():
         ],
         "resize_keyboard": True
     }
+
+def profile_menu():
+    return {
+        "keyboard": [
+            ["✏️ Город", "🎯 Интересы"],
+            ["📊 Моя статистика", "💾 Сохранить профиль"],
+            ["🔙 Назад"]
+        ],
+        "resize_keyboard": True
+    }

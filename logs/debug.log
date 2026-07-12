@@ -5668,3 +5668,82 @@
 2026-07-12 14:09:50,264 - bot_core.client - WARNING - Таймаут, попытка 2/3
 2026-07-12 14:09:52,267 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (5): api.telegram.org:443
 2026-07-12 14:10:08,811 - __main__ - INFO - 👋 Получен сигнал остановки
+2026-07-12 14:17:08,544 - root - INFO - ✅ Система логирования настроена
+2026-07-12 14:17:08,545 - __main__ - INFO - 🚀 Gatherly OS запущена
+2026-07-12 14:17:08,545 - __main__ - INFO - 📁 База данных: gatherly.db
+2026-07-12 14:17:08,546 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:17:08,547 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:17:08,547 - bot_core.bot - INFO - 🤖 Бот запущен
+2026-07-12 14:17:08,549 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-12 14:17:13,870 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/getUpdates?timeout=30&offset=1 HTTP/1.1" 200 382
+2026-07-12 14:17:13,871 - bot_core.dispatcher - INFO - Daniil (293975418): ⏰ Напоминания
+2026-07-12 14:17:14,127 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/sendMessage HTTP/1.1" 200 801
+2026-07-12 14:17:17,940 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/getUpdates?timeout=30&offset=757374667 HTTP/1.1" 200 425
+2026-07-12 14:17:17,940 - bot_core.dispatcher - INFO - Daniil (293975418): ➕ Создать напоминание
+2026-07-12 14:17:18,084 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/sendMessage HTTP/1.1" 200 855
+2026-07-12 14:17:23,707 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/getUpdates?timeout=30&offset=757374668 HTTP/1.1" 200 352
+2026-07-12 14:17:23,708 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 14:17:23,871 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/sendMessage HTTP/1.1" 200 801
+2026-07-12 14:17:27,010 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/getUpdates?timeout=30&offset=757374669 HTTP/1.1" 200 352
+2026-07-12 14:17:27,012 - bot_core.dispatcher - INFO - Daniil (293975418): 🔙 Назад
+2026-07-12 14:17:27,210 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/sendMessage HTTP/1.1" 200 2923
+2026-07-12 14:17:34,070 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/getUpdates?timeout=30&offset=757374670 HTTP/1.1" 200 364
+2026-07-12 14:17:34,072 - bot_core.dispatcher - INFO - Daniil (293975418): 👤 Профиль
+2026-07-12 14:17:34,239 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/sendMessage HTTP/1.1" 200 743
+2026-07-12 14:17:55,264 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 14:17:57,269 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): api.telegram.org:443
+2026-07-12 14:18:17,699 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 14:18:19,702 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): api.telegram.org:443
+2026-07-12 14:18:36,704 - __main__ - INFO - 👋 Получен сигнал остановки
+2026-07-12 14:28:15,751 - root - INFO - ✅ Система логирования настроена
+2026-07-12 14:28:15,752 - __main__ - INFO - 🚀 Gatherly OS запущена
+2026-07-12 14:28:15,752 - __main__ - INFO - 📁 База данных: gatherly.db
+2026-07-12 14:28:15,753 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:28:15,753 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:28:15,754 - bot_core.bot - INFO - 🤖 Бот запущен
+2026-07-12 14:28:15,756 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-12 14:28:20,741 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/getUpdates?timeout=30&offset=1 HTTP/1.1" 200 364
+2026-07-12 14:28:20,742 - bot_core.dispatcher - INFO - Daniil (293975418): 👤 Профиль
+2026-07-12 14:28:20,996 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/sendMessage HTTP/1.1" 200 743
+2026-07-12 14:28:23,182 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/getUpdates?timeout=30&offset=757374672 HTTP/1.1" 200 364
+2026-07-12 14:28:23,182 - bot_core.dispatcher - INFO - Daniil (293975418): 👤 Профиль
+2026-07-12 14:28:23,351 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/sendMessage HTTP/1.1" 200 743
+2026-07-12 14:28:44,398 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 14:28:46,400 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): api.telegram.org:443
+2026-07-12 14:28:48,571 - __main__ - INFO - 👋 Получен сигнал остановки
+2026-07-12 14:29:34,765 - root - INFO - ✅ Система логирования настроена
+2026-07-12 14:29:34,766 - __main__ - INFO - 🚀 Gatherly OS запущена
+2026-07-12 14:29:34,766 - __main__ - INFO - 📁 База данных: gatherly.db
+2026-07-12 14:29:34,767 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:29:34,768 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:29:34,769 - bot_core.bot - INFO - 🤖 Бот запущен
+2026-07-12 14:29:34,771 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-12 14:29:40,345 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/getUpdates?timeout=30&offset=1 HTTP/1.1" 200 364
+2026-07-12 14:29:40,346 - bot_core.dispatcher - INFO - Daniil (293975418): 👤 Профиль
+2026-07-12 14:29:41,725 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/sendMessage HTTP/1.1" 200 743
+2026-07-12 14:29:56,740 - __main__ - INFO - 👋 Получен сигнал остановки
+2026-07-12 14:29:58,882 - root - INFO - ✅ Система логирования настроена
+2026-07-12 14:29:58,882 - __main__ - INFO - 🚀 Gatherly OS запущена
+2026-07-12 14:29:58,883 - __main__ - INFO - 📁 База данных: gatherly.db
+2026-07-12 14:29:58,883 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:29:58,884 - core.database - INFO - ✅ База данных инициализирована
+2026-07-12 14:29:58,885 - bot_core.bot - INFO - 🤖 Бот запущен
+2026-07-12 14:29:58,887 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-12 14:30:04,335 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/getUpdates?timeout=30&offset=1 HTTP/1.1" 200 364
+2026-07-12 14:30:04,336 - bot_core.dispatcher - INFO - Daniil (293975418): 👤 Профиль
+2026-07-12 14:30:04,596 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot8998508373:AAEBs57cSLf236ndaal4zZ_6h_ht8WAZ6Sg/sendMessage HTTP/1.1" 200 743
+2026-07-12 14:30:25,625 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 14:30:27,627 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): api.telegram.org:443
+2026-07-12 14:30:48,049 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 14:30:50,055 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): api.telegram.org:443
+2026-07-12 14:31:10,307 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 14:31:13,312 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): api.telegram.org:443
+2026-07-12 14:31:33,758 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 14:31:35,760 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (5): api.telegram.org:443
+2026-07-12 14:31:56,253 - bot_core.client - WARNING - Таймаут, попытка 2/3
+2026-07-12 14:31:58,256 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (6): api.telegram.org:443
+2026-07-12 14:32:18,517 - bot_core.client - WARNING - Таймаут, попытка 3/3
+2026-07-12 14:32:21,525 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (7): api.telegram.org:443
+2026-07-12 14:32:41,910 - bot_core.client - WARNING - Таймаут, попытка 1/3
+2026-07-12 14:32:43,912 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (8): api.telegram.org:443
+2026-07-12 14:32:55,946 - __main__ - INFO - 👋 Получен сигнал остановки

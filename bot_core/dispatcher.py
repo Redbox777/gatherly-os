@@ -148,18 +148,17 @@ class Dispatcher:
             else:
                 self.client.send_message(chat_id, "📝 Пример: /weather Орел")
         
-        # Профиль (кнопки)
-.       elif text == "👤 Профиль":
-    self.profile_handler.show_profile(chat_id)
-.       elif text == "✏️ Город":
-    self.profile_handler.edit_city(chat_id)
-.       elif text == "🎯 Интересы":
-    self.profile_handler.edit_interests(chat_id)
-.       elif text == "📊 Моя статистика":
-    self.stats_handler.show_user_stats(chat_id)
-.       elif text == "💾 Сохранить профиль":
-    self.client.send_message(chat_id, "✅ Профиль сохранён!", profile_menu())
-                    
+        # Профиль
+        elif text == "👤 Профиль":
+            self.profile_handler.show_profile(chat_id)
+        elif text == "✏️ Город":
+            self.profile_handler.edit_city(chat_id)
+        elif text == "🎯 Интересы":
+            self.profile_handler.edit_interests(chat_id)
+        elif text == "📊 Моя статистика":
+            self.stats_handler.show_user_stats(chat_id)
+        elif text == "💾 Сохранить профиль":
+            self.client.send_message(chat_id, "✅ Профиль сохранён!", profile_menu())
         
         # Встречи
         elif match_keyword(text_lower, KEYWORDS["create_meeting"]):
@@ -226,7 +225,7 @@ class Dispatcher:
             else:
                 self.client.send_message(chat_id, "❌ Пример: /expenses 1")
         
-        # Напоминания (кнопки)
+        # Напоминания
         elif match_keyword(text_lower, KEYWORDS["reminders"]):
             self.reminder_handler.show_menu(chat_id)
         elif text == "➕ Создать напоминание":
